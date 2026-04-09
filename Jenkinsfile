@@ -1,4 +1,5 @@
 pipeline {
+
     agent any
 
     tools {
@@ -16,7 +17,6 @@ pipeline {
             steps {
                 echo 'Recuperation du code depuis GitHub...'
                 checkout scm
-                echo "Branche : ${env.GIT_BRANCH}"
             }
         }
 
@@ -52,7 +52,8 @@ pipeline {
             }
             post {
                 always {
-                    junit allowEmptyResults: true, testResults: 'junit-report.xml'
+                    junit allowEmptyResults: true,
+                          testResults: 'junit-report.xml'
                 }
             }
         }
@@ -60,8 +61,7 @@ pipeline {
         stage('Resume Final') {
             steps {
                 echo "Projet   : ${env.PROJECT_NAME}"
-                echo "Build N° : ${env.BUILD_NUMBER}"
-                echo "Commit   : ${env.GIT_COMMIT}"
+                echo "Build N  : ${env.BUILD_NUMBER}"
             }
         }
     }
