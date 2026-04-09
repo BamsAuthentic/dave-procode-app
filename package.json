@@ -1,0 +1,28 @@
+{
+  "name": "dave-procode-app",
+  "version": "1.0.0",
+  "description": "Application Node.js CI/CD Demo - Dave Procode",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "build": "echo 'Build NPM terminé avec succès'",
+    "test": "jest --coverage",
+    "test:ci": "jest --coverage --ci --forceExit --reporters=default --reporters=jest-junit"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "coverageDirectory": "coverage",
+    "coverageReporters": ["lcov", "text", "clover"],
+    "testMatch": ["**/test/**/*.test.js"]
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "jest-junit": "^16.0.0",
+    "supertest": "^6.3.4"
+  },
+  "author": "Dave Procode",
+  "license": "MIT"
+}
